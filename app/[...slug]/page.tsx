@@ -79,11 +79,12 @@ export async function generateMetadata(
 	});
   }
   export default async function Page({ params }: PageProps) {
-
 	const agilityData = await getAgilityPage({ params });
 	if (!agilityData.page) notFound();
   
 	const AgilityPageTemplate = getPageTemplate(agilityData.pageTemplateName || "");
+
+	//console.log("agilityData", agilityData);
   
 	return (
 	  <div data-agility-page={agilityData.page?.pageID} data-agility-dynamic-content={agilityData.sitemapNode.contentID}>
